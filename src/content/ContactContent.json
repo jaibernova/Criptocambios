@@ -1,0 +1,22 @@
+{
+    "title": "Formulario de contacto",
+    "text": "Necesitas mas informacion? Dejanos tus datos para poder contactarnos contigo y poder solucionar tus diferentes dudas.",
+    "pesos": "Valor en pesos",
+    "crypto": "recibes",
+    "nombre": "Nombre",
+    "celular": "Celular",
+    "correo": "Correo",
+    "descripcion": "Realiza el pago y envia el comprobante al 3174081631",
+    "pagos": [
+        {
+            "title": "Nequi: 317 408 1631"
+        },
+        {
+            "title": "Daviplata: 317 408 1631"
+        },
+        {
+            "title": "Av villas: "
+        }
+        
+    ]    
+}

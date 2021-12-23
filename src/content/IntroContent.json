@@ -1,0 +1,30 @@
+{
+  "title": "Compra y vende criptomonedas rapidamente",
+  "texto" : "Porfavor selecciona una opcion",
+  "text": "Nos dedicamos al intercambio de cripto-activos para aquellos interesados en iniciar a invertir.",
+  "button": [
+    {
+      "title": "Como comprar"
+    },
+    {
+      "title": "Como vender",
+      "color": "#fff"
+    }
+  ],
+  "titulo": "¿Que deseas comprar?",
+  "tituloVenta": "¿Que deseas vender?",
+  "monedas": [
+    {
+      "title": "bitcoin",
+      "imagen":  "img/icons/bitcoin.png"
+    },
+    {
+      "title": "ethereum",
+      "imagen":  "img/icons/ethereum.png"
+    },
+    {
+      "title": "tether",
+      "imagen":  "img/icons/tether.png"
+    }
+  ]
+}

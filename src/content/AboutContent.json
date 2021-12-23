@@ -1,0 +1,19 @@
+{
+  "title": "Como comprar?",
+  "text": "Nos indicaras el monto que deseas adquirir, nos dejaras tus datos y nos comunicaremos contigo.",
+  "cotizar": [
+    {"Cotizar": "cotizar"}
+  ], 
+  "section": [
+    {
+      "title": "Compra minima",
+      "content": "Somos aficionados como tu, por lo que realizamos cambios de montos pequeños minimo de $100.000 maximo de $1.000.000.",
+      "icon": "notes.svg"
+    },
+    {
+      "title": "Como me entregan las criptos?",
+      "content": "Nos indicaras el monedero al que enviaremos tu compra para poder hacer el envio.",
+      "icon": "notes.svg"
+    }
+  ]
+}

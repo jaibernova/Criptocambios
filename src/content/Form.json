@@ -1,0 +1,23 @@
+{
+    "pesos": "Valor en pesos",
+    "title": "Llena el formulario",
+    "crypto": "recibes",
+    "text": "",
+    "nombre": "Nombre",
+    "celular": "Celular",
+    "correo": "Correo",
+    "icono": "wallet.png",
+    "descripcion": "Realiza el pago y envia el comprobante al 3174081631",
+    "pagos": [
+        {
+            "title": "Nequi: 317 408 1631"
+        },
+        {
+            "title": "Daviplata: 317 408 1631"
+        },
+        {
+            "title": "Av villas: "
+        }
+        
+    ]    
+}
