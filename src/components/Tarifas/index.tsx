@@ -19,6 +19,8 @@ import {
 const Formulario = lazy(() => import("../../components/Formulario"));
 
 const StyledTable = styled.table`
+  display: block;
+  overflow-x:auto;
   caption-side: top;
   border: none;
   border-collapse: collapse;
@@ -46,11 +48,11 @@ const StyledTable = styled.table`
   } */
 
   td {
-    padding: 20px 70px;
+    padding: 20px 30px;
   }
 
   tbody tr {
-    font-size: 1.5em;
+    font-size: 1.2em;
     :nth-of-type(odd) {
       background-color: #efefef;
     }
@@ -59,13 +61,13 @@ const StyledTable = styled.table`
     }
   }
   thead > tr {
-    font-size: 1.5em;
-    padding: 20px 20px;
+    font-size: 1.2em;
+    padding: 0px 0px;
     background-color: #c2c2c2;
   }
   caption {
     font-size: 0.9em;
-    padding: 5px;
+    padding: 0px;
     font-weight: bold;
   }
 `;
@@ -153,20 +155,20 @@ const Tarifas = ({
                             <tr>
                                
                                 <td>Bitcoin</td>
-                                <td>$ {(Math.round(bitcoin+(bitcoin*0.05))).toLocaleString("de-DE")}</td>
-                                <td>$ {(Math.round((bitcoin*trm)+((bitcoin*trm)*0.05)).toLocaleString("de-DE"))}</td>
+                                <td>${(Math.round(bitcoin+(bitcoin*0.05))).toLocaleString("de-DE")}</td>
+                                <td>${(Math.round((bitcoin*trm)+((bitcoin*trm)*0.05)).toLocaleString("de-DE"))}</td>
                             </tr>
                             <tr>
                                
                                 <td>Ethereum</td>
-                                <td>$ {Math.round((ethereum+(ethereum*0.05))).toLocaleString("de-DE")}</td>
-                                <td>$ {Math.round((ethereum*trm)+((ethereum*trm)*0.05)).toLocaleString("de-DE")}</td>
+                                <td>${Math.round((ethereum+(ethereum*0.05))).toLocaleString("de-DE")}</td>
+                                <td>${Math.round((ethereum*trm)+((ethereum*trm)*0.05)).toLocaleString("de-DE")}</td>
                             </tr>
                             <tr>
                               
                                 <td>Tether</td>
-                                <td>$ {Math.round(tether+(tether*0.05)).toLocaleString("de-DE")}</td>
-                                <td>$ {Math.round((tether*trm)+((tether*trm)*0.05)).toLocaleString("de-DE")}</td>
+                                <td>${Math.round(tether+(tether*0.05)).toLocaleString("de-DE")}</td>
+                                <td>${Math.round((tether*trm)+((tether*trm)*0.05)).toLocaleString("de-DE")}</td>
                             </tr>
 
                         </tbody>

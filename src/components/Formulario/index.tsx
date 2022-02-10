@@ -5,6 +5,7 @@ import { ContactProps, ValidationTypeProps } from "./types";
 import { useForm } from "../../common/utils/useForm";
 import validate from "../../common/utils/validationRules";
 import { Button } from "../../common/Button";
+import Swal from 'sweetalert2'
 import Block from "../Block";
 import Input from "../../common/Input";
 import { SvgIcon } from "../../common/SvgIcon";
@@ -14,7 +15,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import TextArea from "../../common/TextArea";
 import TrmApi from "trm-api";
-import { ContactContainer, Content, Contenido, ContentWrapper, FormGroup, Span, ButtonContainer } from "./styles";
+import { ContactContainer, Content, Contenido, StyledButton, FormGroup, Span, ButtonContainer } from "./styles";
 
 
 const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo }: ContactProps) => {
@@ -25,7 +26,7 @@ const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo 
   const [valor, setValor] = useState(0)
   const [trm, setTrm] = useState(0)
 
- 
+
 
   const sendEmail = (e: { preventDefault: () => any; target: any | HTMLFormElement; }) => {
     e.preventDefault();
@@ -33,12 +34,14 @@ const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo 
 
     emailjs.sendForm('service_r8xou5n', 'template_d48tspo', e.target, 'user_MM5xdNpQ9Zz6f7oOqcHRb')
       .then((result) => {
-          console.log(result.text);
+        console.log(result.text);
       }, (error) => {
-          console.log(error.text);
+        console.log(error.text);
       });
-      e.target.reset();
-      
+    e.target.reset();
+    Swal.fire('Se envio tu solicitud', 'Si quieres mas informacion puedes escribirnos al whatsapp 3174081631')
+
+
   };
 
 
@@ -119,10 +122,13 @@ const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo 
               <Col span={24}>
                 <p>¿Cuanto deseas comprar en pesos?</p>
                 <input
-                  type="any"
+                  type="number"
                   name="pesos"
-                  placeholder="Ingresa el valor en pesos"
+                  min="100000"
+                  max="1000000"
+                  placeholder="Min 100.000-Max 1.000.000"
                   value={valor !== 0 ? valor : ""}
+                  required
                   onChange={handleInputChange}
                 />
 
@@ -130,29 +136,63 @@ const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo 
               </Col>
               <br />
               <Col span={24}>
-                <p>Recibes en la criptomoneda seleccionada</p>
+                <p>Recibes en la criptomoneda seleccionada (Recuerda seleccionarla en la parte superior de la pagina)</p>
                 <input
                   type="any"
                   name="cripto"
-                  placeholder="Porfavor selecciona una criptomoneda en la parte superior"
-                  value={(valor !== 0 && tipo !== "")  ? "Recibiras "+((valor / (valorcoin * trm)).toFixed(11))+" "+tipo : ""}
+                  required
+                  placeholder="Recuerda seleccionar una criptomoneda"
+                  value={(valor !== 0 && tipo !== "") ? "Recibiras " + ((valor / ((valorcoin+(valorcoin*0.05)) * trm)).toFixed(11)) + " " + tipo : ""}
 
                 />
                 {/* <ValidationType type="name" /> */}
               </Col>
               <br />
-    
-              <Row justify="space-between" align="middle" id={id}>
-                <Col lg={11} md={11} sm={11} xs={24}>
-               
-                    {/* <h6>{t(medios)}</h6> */}
 
-                    <Contenido>Recuerda que los medios de pagos que manejamos son:</Contenido>
+              <Row justify="space-between" align="middle" id={id}>
+                <Col lg={24} md={11} sm={11} xs={24}>
+
+                  {/* <h6>{t(medios)}</h6> */}
+                  <ButtonContainer>
+                    <Contenido>Recuerda que los medios de pago que manejamos son:</Contenido>
                     <Contenido>  • Nequi: 317 408 1631</Contenido>
                     <Contenido>  • Daviplata: 317 408 1631</Contenido>
-                    <Contenido>  • Av villas: 317 408 1631</Contenido>
+
                     <br />
-                    <Contenido>  Nota: Escribir en el mensaje o comprobante "NO reembolsable. Pago de Bitcoins a Jaiber Nova."</Contenido>
+
+                    <Contenido>  Nota: Escribir en el mensaje o comprobante "NO reembolsable. Pago de Bitcoins a Jaiber Nova". Por seguridad debes adjuntar foto del documento de identidad para validar que la cuenta te pertenece.</Contenido>
+                  </ButtonContainer>
+                  <br />
+                </Col>
+                <br />
+                {/* <div style={{alignItems:'center'}}>
+                <Col lg={11} md={11} sm={12} xs={24}>
+                  <SvgIcon src={icono} width="60%" height="60%"  />
+                </Col>
+                </div> */}
+              </Row>
+              <Row justify="space-between" align="middle" id={id}>
+                <Col lg={24} md={11} sm={11} xs={24}>
+
+                  {/* <h6>{t(medios)}</h6> */}
+
+                  <hr />
+                  <ButtonContainer>
+                    <p> ¿No tienes billetera? Crea ya una cuenta en el monedero virtual mas grande y seguro </p>
+                  </ButtonContainer>
+
+                  <iframe src='https://www.youtube.com/embed/6lZbKqZX6BQ'
+
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full"
+                    width="100%" height="300"
+                    title='video'
+                  ></iframe>
+                  <br />
+                  <br />
+                  <ButtonContainer> <StyledButton href="https://accounts.binance.com/es/register?ref=20517808">{t("Crea una cuenta en Binance")}</StyledButton> </ButtonContainer>
+                  <br />
+                  <hr />
+
                 </Col>
                 <br />
                 {/* <div style={{alignItems:'center'}}>
@@ -171,12 +211,16 @@ const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo 
               <h4>
                 Nequi
               </h4> */}
+              <ButtonContainer>
+                <p> Continua llenando el formulario: </p>
+              </ButtonContainer>
               <Col span={24}>
                 <p>Ingresa tu nombre</p>
                 <input
                   type="text"
                   name="nombre"
                   placeholder="Tu nombre"
+                  required
                 // value={values.name || ""}
                 // onChange={handleInputChange}
                 />
@@ -189,6 +233,7 @@ const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo 
                   type="email"
                   name="correo"
                   placeholder="Tu correo"
+                  required
                 // value={values.email || ""}
                 // onChange={handleInputChange}
                 />
@@ -198,9 +243,10 @@ const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo 
               <Col span={24}>
                 <p>Ingresa tu celular</p>
                 <input
-                  type="cellphone"
+                  type="number"
                   name="celular"
                   placeholder="Tu celular"
+                  required
                 // value={values.cellphone || ""}
                 // onChange={handleInputChange}
                 />

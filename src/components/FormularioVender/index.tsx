@@ -6,6 +6,7 @@ import { useForm } from "../../common/utils/useForm";
 import validate from "../../common/utils/validationRules";
 import { Button } from "../../common/Button";
 import Block from "../Block";
+import Swal from 'sweetalert2'
 import Input from "../../common/Input";
 import InputCrypto from "../../common/InputCrypto";
 import axios from 'axios';
@@ -38,6 +39,7 @@ const FormularioVender = ({ title, content, id, t, cambio, tipo }: ContactProps)
         console.log(error.text);
       });
     e.target.reset();
+    Swal.fire('Se envio tu solicitud', 'Si quieres mas informacion puedes escribirnos al whatsapp 3174081631')
 
   };
 
@@ -116,11 +118,11 @@ const FormularioVender = ({ title, content, id, t, cambio, tipo }: ContactProps)
           <Slide direction="left">
              <form autoComplete="on" onSubmit={sendEmail}>
               <Col span={24}>
-                <p>¿Cuanto deseas vender en la criptomoneda seleccionada?</p>
+                <p>¿Cuanto deseas vender en la criptomoneda seleccionada? (Recuerda seleccionarla en la parte superior de la pagina)</p>
                 <input
-                  type="any"
+                  type="number"
                   name="cripto"
-                  placeholder="Ingresa el total a vender en la cripto seleccionada"
+                  placeholder="Ingresa el valor"
                   value={valor !== 0 ? valor : ""}
                   onChange={handleInputChange}
                 />
@@ -132,9 +134,10 @@ const FormularioVender = ({ title, content, id, t, cambio, tipo }: ContactProps)
                 <p>Recibes en pesos</p>
                 <input
                   type="any"
+                  
                   name="pesos"
-                  placeholder="Porfavor selecciona una criptomoneda en la parte superior"
-                  value={(valor !== 0 && tipo !== "") ? "$"+(((valor * (valorcoin * trm))).toFixed(0)) +" "+"sera lo que recibiras por tus "+tipo : ""}
+                  placeholder="Recuerda seleccionar una criptomoneda"
+                  value={(valor !== 0 && tipo !== "") ? "$"+(((valor * (valorcoin * trm-((valorcoin*0.05) * trm)))).toFixed(0)) +" "+"pesos sera lo que recibiras por tus "+tipo : ""}
 
                 />
                 {/* <ValidationType type="name" /> */}
@@ -146,18 +149,19 @@ const FormularioVender = ({ title, content, id, t, cambio, tipo }: ContactProps)
               <h4>
                 Nequi
               </h4> */}
-
+              <hr />
               <Row justify="space-between" align="middle" id={id}>
-                <Col lg={11} md={11} sm={11} xs={24}>
+                <Col lg={24} md={11} sm={11} xs={24}>
 
                   {/* <h6>{t(medios)}</h6> */}
-
-                  <Contenido>Recuerda enviar las criptomonedas a la siguiente direccion:</Contenido>
-                  <Contenido>  • Bitcoin: 317 408 1631</Contenido>
-                  <Contenido>  • Ethereum: 317 408 1631</Contenido>
-                  <Contenido>  • TetherUS: 317 408 1631</Contenido>
+                  <ButtonContainer> 
+                  <Contenido>Recuerda enviar las criptomonedas a la siguiente direccion depdendiendo de la moneda seleccionada:</Contenido>
+                  <Contenido>  • Bitcoin: 1gSuGez4j9pUquseeBz1ZoThRwZkYMk9i</Contenido>
+                  <Contenido>  • Ethereum: 0x8d3651a5a491fc7b8ef6ec4fb6925ad8062a0e37</Contenido>
+                  <Contenido>  • TetherUS: 0x8d3651a5a491fc7b8ef6ec4fb6925ad8062a0e37</Contenido>
                   <br />
-                  <Contenido>  Nota: Recuerda enviar el soporte luego de realizado el pago.</Contenido>
+                  <Contenido>  Nota: Recuerda enviar el soporte luego de realizado el pago. Si tienes mas dudas puedes escribirnos al 3174081631.</Contenido>
+                  </ButtonContainer>
                 </Col>
                 <br />
                 {/* <div style={{alignItems:'center'}}>
@@ -166,6 +170,7 @@ const FormularioVender = ({ title, content, id, t, cambio, tipo }: ContactProps)
                 </Col>
                 </div> */}
               </Row>
+              <hr />
 
               <br />
 
