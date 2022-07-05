@@ -36,7 +36,7 @@ const LeftContentBlock = ({
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
               <ServiceWrapper>
-                <Row justify="space-between">
+                {/* <Row justify="space-between">
                   {typeof section === "object" &&
                     section.map((item: any, id: number) => {
                       return (
@@ -47,7 +47,7 @@ const LeftContentBlock = ({
                         </Col>
                       );
                     })}
-                </Row>
+                </Row> */}
               </ServiceWrapper>
             </ContentWrapper>
           </Col>

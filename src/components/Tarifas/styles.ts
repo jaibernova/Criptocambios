@@ -29,4 +29,9 @@ export const CenterVH = styled("section")`
   align-items: center;
 `;
 
+export const ButtonContainer = styled("h6")`
+  text-align: center;
+  position: relative;
+
+`;
 

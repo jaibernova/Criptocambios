@@ -24,11 +24,8 @@ const Home = () => {
         icon="criptomoneda.png"
         id="intro"
       />
-      <MiddleBlock
-        title={MiddleBlockContent.title}
-        content={MiddleBlockContent.text}
-        button={MiddleBlockContent.button}
-      />
+
+
       <ContentBlock
         type="left"
         title={AboutContent.title}
@@ -37,7 +34,20 @@ const Home = () => {
         cotizar={AboutContent.cotizar}
         icon="miner.png"
         id="about"
+      />  
+
+
+
+      
+      <MiddleBlock
+        title={MiddleBlockContent.title}
+        content={MiddleBlockContent.text}
+        button={MiddleBlockContent.button}
       />
+
+
+
+
       <ContentBlock
         type="right"
         title={MissionContent.title}
@@ -45,7 +55,8 @@ const Home = () => {
         vender={MissionContent.vender}
         icon="vender.png"
         id="mission"
-      />
+      />     
+
       <ContentBlock
         type="left"
         title={ProductContent.title}

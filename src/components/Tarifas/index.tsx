@@ -12,8 +12,9 @@ import { Fade } from "react-awesome-reveal";
 import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import {
-    RightBlockContainer,
-    CenterVH
+  RightBlockContainer,
+  CenterVH,
+  ButtonContainer
 } from "./styles";
 
 const Formulario = lazy(() => import("../../components/Formulario"));
@@ -72,114 +73,162 @@ const StyledTable = styled.table`
   }
 `;
 const Tarifas = ({
-    title,
-    content,
-    vender,
-    texto,
-    V,
-    H,
-    button,
-    titulo,
-    icono,
-    monedas,
-    icon,
-    t,
-    id,
+  title,
+  content,
+  vender,
+  texto,
+  V,
+  H,
+  button,
+  titulo,
+  icono,
+  monedas,
+  icon,
+  t,
+  id,
 }: ContentBlockProps) => {
-    const [bitcoin, setBitcoin] = useState(0);
-    const [ethereum, setEthereum] = useState(0);
-    const [tether, setTether] = useState(0);
-    const [trm, setTrm] =useState(0)
-    
-    useEffect(() => {
-          var tipo = "bitcoin%2Cethereum%2Ctether"
+  const [bitcoin, setBitcoin] = useState(0);
+  const [ethereum, setEthereum] = useState(0);
+  const [tether, setTether] = useState(0);
+  const [trm, setTrm] = useState(0)
 
-          axios
-            .get(
-              "https://api.coingecko.com/api/v3/simple/price/?ids=" +
-              tipo +
-              "&vs_currencies=usd"
-            )
-            .then((respuesta) => {
-              // console.log(respuesta.data["cardano"].usd);
-              // console.log(respuesta.data["bitcoin"].usd)       
-              var valorBitcoin = respuesta.data['bitcoin'].usd;
-              var valorEthereum = respuesta.data['ethereum'].usd;
-              var valorTether = respuesta.data['tether'].usd;
-              setBitcoin((valorBitcoin));
-              setEthereum((valorEthereum));
-              setTether((valorTether));
-              console.log(bitcoin)
-            });
-              
-        const trmApi = new TrmApi("86ntw691tjbccDPP9BypbFDIQ");
-        const trm = trmApi.latest()
-          .then((data) => {
-            var trmCoin = data.valor
-            var trmInt = parseInt(trmCoin)
-            setTrm(trmInt)
-          })
-          .catch((error) => console.log(error));
-    
-    
-    
-    
-      }, []);
+  useEffect(() => {
+    var tipo = "bitcoin%2Cethereum%2Ctether"
 
-    // const handleClick = (e: string) => {
+    axios
+      .get(
+        "https://api.coingecko.com/api/v3/simple/price/?ids=" +
+        tipo +
+        "&vs_currencies=usd"
+      )
+      .then((respuesta) => {
+        // console.log(respuesta.data["cardano"].usd);
+        // console.log(respuesta.data["bitcoin"].usd)       
+        var valorBitcoin = respuesta.data['bitcoin'].usd;
+        var valorEthereum = respuesta.data['ethereum'].usd;
+        var valorTether = respuesta.data['tether'].usd;
+        setBitcoin((valorBitcoin));
+        setEthereum((valorEthereum));
+        setTether((valorTether));
+        console.log(bitcoin)
+      });
 
-    //     setState(e)
-    // };
-    // const scrollTo = (id: string) => {
-    //     const element = document.getElementById(id) as HTMLDivElement;
-    //     element.scrollIntoView({
-    //         behavior: "smooth",
-    //     });
-    // };
-    return (
-        <div>
-            <RightBlockContainer>
-                <Fade direction="right">
-                    <CenterVH>
+    const trmApi = new TrmApi("86ntw691tjbccDPP9BypbFDIQ");
+    const trm = trmApi.latest()
+      .then((data) => {
+        var trmCoin = data.valor
+        var trmInt = parseInt(trmCoin)
+        setTrm(trmInt)
+      })
+      .catch((error) => console.log(error));
 
-                    <StyledTable>
-                        <thead>
-                            <tr>
-                            
-                                <th>Criptomoneda</th>
-                                <th>En dolares</th>
-                                <th>En pesos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                               
-                                <td>Bitcoin</td>
-                                <td>${(Math.round(bitcoin+(bitcoin*0.05))).toLocaleString("de-DE")}</td>
-                                <td>${(Math.round((bitcoin*trm)+((bitcoin*trm)*0.05)).toLocaleString("de-DE"))}</td>
-                            </tr>
-                            <tr>
-                               
-                                <td>Ethereum</td>
-                                <td>${Math.round((ethereum+(ethereum*0.05))).toLocaleString("de-DE")}</td>
-                                <td>${Math.round((ethereum*trm)+((ethereum*trm)*0.05)).toLocaleString("de-DE")}</td>
-                            </tr>
-                            <tr>
-                              
-                                <td>Tether</td>
-                                <td>${Math.round(tether+(tether*0.05)).toLocaleString("de-DE")}</td>
-                                <td>${Math.round((tether*trm)+((tether*trm)*0.05)).toLocaleString("de-DE")}</td>
-                            </tr>
 
-                        </tbody>
-                    </StyledTable>
-                    </CenterVH>
 
-                </Fade>
-            </RightBlockContainer>
 
-        </div>
-    );
+  }, []);
+
+  // const handleClick = (e: string) => {
+
+  //     setState(e)
+  // };
+  // const scrollTo = (id: string) => {
+  //     const element = document.getElementById(id) as HTMLDivElement;
+  //     element.scrollIntoView({
+  //         behavior: "smooth",
+  //     });
+  // };
+  return (
+    <div>
+
+      <RightBlockContainer>
+        <Fade direction="right">
+          <ButtonContainer>
+            <h6>Tarifas de venta</h6>
+
+          </ButtonContainer>
+          <CenterVH>
+
+            <StyledTable>
+              <thead>
+                <tr>
+
+                  <th>Criptomoneda</th>
+                  <th>En dolares</th>
+                  <th>En pesos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>Bitcoin</td>
+                  <td>${(Math.round(bitcoin + (bitcoin * 0.05))).toLocaleString("de-DE")}</td>
+                  <td>${(Math.round((bitcoin * trm) + ((bitcoin * trm) * 0.05)).toLocaleString("de-DE"))}</td>
+                </tr>
+                <tr>
+
+                  <td>Ethereum</td>
+                  <td>${Math.round((ethereum + (ethereum * 0.05))).toLocaleString("de-DE")}</td>
+                  <td>${Math.round((ethereum * trm) + ((ethereum * trm) * 0.05)).toLocaleString("de-DE")}</td>
+                </tr>
+                <tr>
+
+                  <td>Tether</td>
+                  <td>${Math.round(tether + (tether * 0.05)).toLocaleString("de-DE")}</td>
+                  <td>${Math.round((tether * trm) + ((tether * trm) * 0.05)).toLocaleString("de-DE")}</td>
+                </tr>
+
+              </tbody>
+            </StyledTable>
+          </CenterVH>
+
+        </Fade>
+      </RightBlockContainer>
+      <hr />
+      <RightBlockContainer>
+        <Fade direction="left">
+          <ButtonContainer>
+            <h6>Tarifas de compra</h6>
+
+          </ButtonContainer>
+          <CenterVH>
+
+            <StyledTable>
+              <thead>
+                <tr>
+
+                  <th>Criptomoneda</th>
+                  <th>En dolares</th>
+                  <th>En pesos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>Bitcoin</td>
+                  <td>${(Math.round(bitcoin - (bitcoin * 0.05))).toLocaleString("de-DE")}</td>
+                  <td>${(Math.round((bitcoin * trm) - ((bitcoin * trm) * 0.05)).toLocaleString("de-DE"))}</td>
+                </tr>
+                <tr>
+
+                  <td>Ethereum</td>
+                  <td>${Math.round((ethereum - (ethereum * 0.05))).toLocaleString("de-DE")}</td>
+                  <td>${Math.round((ethereum * trm) - ((ethereum * trm) * 0.05)).toLocaleString("de-DE")}</td>
+                </tr>
+                <tr>
+
+                  <td>Tether</td>
+                  <td>${Math.round(tether - (tether * 0.05)).toLocaleString("de-DE")}</td>
+                  <td>${Math.round((tether * trm) - ((tether * trm) * 0.05)).toLocaleString("de-DE")}</td>
+                </tr>
+
+              </tbody>
+            </StyledTable>
+          </CenterVH>
+
+        </Fade>
+      </RightBlockContainer>
+    </div>
+  );
 };
 
 export default withTranslation()(Tarifas);

@@ -30,7 +30,7 @@ const RightBlock = ({
   };
   return (
     <RightBlockContainer>
-      <Fade direction="right">
+      <Fade direction="left">
         <Row justify="space-between" align="middle" id={id}>
           <Col lg={11} md={11} sm={11} xs={24}>
             <ContentWrapper>
@@ -54,7 +54,7 @@ const RightBlock = ({
               </ButtonWrapper>
             </ContentWrapper>
           </Col>
-          <Col lg={11} md={11} sm={12} xs={24}>
+          <Col lg={11} md={11} sm={11} xs={24}>
             <SvgIcon src={icon} width="100%" height="100%" />
           </Col>
         </Row>

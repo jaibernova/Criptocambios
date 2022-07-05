@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, Drawer } from "antd";
 import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
+import { useHistory } from "react-router-dom";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
 import {
@@ -39,18 +40,21 @@ const Header = ({ t }: any) => {
     return (
       <>
         <CustomNavLinkSmall>
+        {/* <a href="/comprar">Comprar</a> */}
           <Link to="/comprar">
-            <Span>{t("comprar")}</Span>
+            <Span>{t("Comprar")}</Span>
           </Link>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall>
+        {/* <a href="/vender">Vender</a>           */}
           <Link to="/vender">
-            <Span>{t("vender")}</Span>
+            <Span>{t("Vender")}</Span>
           </Link>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall>
+          {/* <a href="/tarifas">Tarifas</a> */}
           <Link to="/tarifas">
-            <Span>{t("tarifas")}</Span>
+            <Span>{t("Tarifas")}</Span>
           </Link>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall
