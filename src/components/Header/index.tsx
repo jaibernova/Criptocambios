@@ -37,25 +37,40 @@ const Header = ({ t }: any) => {
       });
       setVisibility(false);
     };
+
+    const closeButton = () => {
+      setVisibility(false);
+    };
     return (
       <>
-        <CustomNavLinkSmall>
-        {/* <a href="/comprar">Comprar</a> */}
+        <CustomNavLinkSmall
+          onClick={() => closeButton()}
+        >
+          {/* <a href="/comprar">Comprar</a> */}
           <Link to="/comprar">
             <Span>{t("Comprar")}</Span>
           </Link>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall>
-        {/* <a href="/vender">Vender</a>           */}
+        <CustomNavLinkSmall
+          onClick={() => closeButton()}
+        >
+          {/* <a href="/vender">Vender</a>           */}
           <Link to="/vender">
             <Span>{t("Vender")}</Span>
           </Link>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall>
+        <CustomNavLinkSmall
+          onClick={() => closeButton()}
+        >
           {/* <a href="/tarifas">Tarifas</a> */}
           <Link to="/tarifas">
             <Span>{t("Tarifas")}</Span>
           </Link>
+        </CustomNavLinkSmall>
+        <CustomNavLinkSmall
+          onClick={() => closeButton()}
+        >
+          <a href="http://criptocambioslatam.com/">Blog</a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall
           style={{ width: "180px" }}
@@ -77,7 +92,7 @@ const Header = ({ t }: any) => {
             <SvgIcon src="criptocambios.png" width="130px" height="130px" />
           </LogoContainer>
           <NotHidden>
-            <MenuItem />
+            <MenuItem></MenuItem>
           </NotHidden>
           <Burger onClick={showDrawer}>
             <Outline />

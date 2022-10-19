@@ -45,7 +45,7 @@ const Vender = ({
   return (
     <div>
       <RightBlockContainer>
-        <Fade direction="right">
+        <Fade direction="left">
           <Row justify="space-between" align="middle" id={id}>
             <Col lg={11} md={11} sm={11} xs={24}>
               <ContentWrapper>

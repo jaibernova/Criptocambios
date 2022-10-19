@@ -52,7 +52,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
           </Slide>
         </Col>
         <Col lg={12} md={12} sm={24} xs={24}>
-          <Slide direction="right">
+          <Slide direction="left">
           <form autoComplete="on" onSubmit={sendEmail}>
               <Col span={24}>
                 <input

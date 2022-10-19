@@ -141,7 +141,7 @@ const Tarifas = ({
     <div>
 
       <RightBlockContainer>
-        <Fade direction="right">
+        <Fade direction="left">
           <ButtonContainer>
             <h6>Tarifas de venta</h6>
 
@@ -172,7 +172,7 @@ const Tarifas = ({
                 </tr>
                 <tr>
 
-                  <td>Tether</td>
+                  <td>Usd</td>
                   <td>${Math.round(tether + (tether * 0.05)).toLocaleString("de-DE")}</td>
                   <td>${Math.round((tether * trm) + ((tether * trm) * 0.05)).toLocaleString("de-DE")}</td>
                 </tr>
@@ -216,7 +216,7 @@ const Tarifas = ({
                 </tr>
                 <tr>
 
-                  <td>Tether</td>
+                  <td>Usd</td>
                   <td>${Math.round(tether - (tether * 0.05)).toLocaleString("de-DE")}</td>
                   <td>${Math.round((tether * trm) - ((tether * trm) * 0.05)).toLocaleString("de-DE")}</td>
                 </tr>

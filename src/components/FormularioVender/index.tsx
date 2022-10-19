@@ -137,7 +137,7 @@ const FormularioVender = ({ title, content, id, t, cambio, tipo }: ContactProps)
                   
                   name="pesos"
                   placeholder="Recuerda seleccionar una criptomoneda"
-                  value={(valor !== 0 && tipo !== "") ? "$"+(((valor * (valorcoin * trm-((valorcoin*0.05) * trm)))).toFixed(0)) +" "+"pesos sera lo que recibiras por tus "+tipo : ""}
+                  value={(valor !== 0 && tipo !== "") ? "Recibiras $"+(((valor * (valorcoin * trm-((valorcoin*0.05) * trm)))).toFixed(0)) +" "+"por tus "+tipo : ""}
 
                 />
                 {/* <ValidationType type="name" /> */}
