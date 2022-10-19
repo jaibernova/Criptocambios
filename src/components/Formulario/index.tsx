@@ -142,7 +142,7 @@ const Formulario = ({ title, content, id, t, cambio, form, current, icono, tipo 
                   name="cripto"
                   required
                   placeholder="Recuerda seleccionar una criptomoneda"
-                  value={(valor !== 0 && tipo !== "") ? "Recibiras " + ((valor / ((valorcoin+(valorcoin*0.05)) * trm)).toFixed(11)) + " " + tipo : ""}
+                  value={(valor !== 0 && tipo !== "" && (tipo === "bitcoin"||tipo === "ethereum" )) ? "Recibiras " + ((valor / ((valorcoin+(valorcoin*0.05)) * trm)).toFixed(11)) + " " + tipo : (valor !== 0 && tipo !== "" && tipo === "usd") ? "Recibiras " + ((valor / ((valorcoin+(valorcoin*0.05)) * trm)).toFixed(1)) + " " + tipo : ""}
 
                 />
                 {/* <ValidationType type="name" /> */}
