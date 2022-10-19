@@ -14,6 +14,7 @@ import {
   Large,
   Chat,
   Empty,
+  AStyled,
   // FooterContainer,
   Language,
   Label,
@@ -93,9 +94,9 @@ const Footer = ({ t }: any) => {
               {/* <Large left="true" to="/">
                 {t("About")}
               </Large> */}
-              <Large left="true" to="/">
-                {t("Blog")}
-              </Large>
+              <AStyled  href="http://criptocambioslatam.com/" target="_blank"  >
+                 {t("Blog")}
+              </AStyled>
               {/* <Large left="true" to="/">
                 {t("Press")}
               </Large> */}

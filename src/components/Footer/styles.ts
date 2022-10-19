@@ -86,6 +86,10 @@ export const Empty = styled("div")`
   height: 53px;
 `;
 
+export const AStyled = styled("a")`
+  font-size: 16px;
+`;
+
 export const FooterContainer = styled("div")`
   max-width: 510px;
   width: 100%;
